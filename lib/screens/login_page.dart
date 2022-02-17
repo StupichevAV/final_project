@@ -50,83 +50,85 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(35),
                       topRight: Radius.circular(35))),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const Text(
-                    'Вход',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextField(
-                    controller: phoneController,
-                    onChanged: (value) {
-                      setState(() {});
-                    },
-                    decoration: InputDecoration(
-                        // icon: Icon(Icons.mail),
-                        prefixIcon: const Icon(Icons.phone),
-                        suffixIcon: phoneController.text.isEmpty
-                            ? const Text('')
-                            : GestureDetector(
-                                onTap: () {
-                                  phoneController.clear();
-                                },
-                                child: const Icon(Icons.close)),
-                        hintText: '+7 (___) ___-__-__',
-                        labelText: 'Телефон',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                                const BorderSide(color: Colors.red, width: 1))),
-                    inputFormatters: [maskFormatter],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextField(
-                    obscureText: isVisible,
-                    controller: passwordController,
-                    onChanged: (value) {
-                      //print(value);
-                    },
-                    //
-                    decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.lock),
-                        suffixIcon: GestureDetector(
-                            onTap: () {
-                              isVisible = !isVisible;
-                              setState(() {});
-                            },
-                            child: Icon(isVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off)),
-                        hintText: 'Введите ваш пароль',
-                        labelText: 'Пароль',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                                const BorderSide(color: Colors.red, width: 1))),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          checkLogin();
-                        });
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    const Text(
+                      'Вход',
+                      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    TextField(
+                      controller: phoneController,
+                      onChanged: (value) {
+                        setState(() {});
                       },
-                      child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 26, vertical: 18),
-                        child: Text('Войти'),
-                      ))
-                ],
+                      decoration: InputDecoration(
+                          // icon: Icon(Icons.mail),
+                          prefixIcon: const Icon(Icons.phone),
+                          suffixIcon: phoneController.text.isEmpty
+                              ? const Text('')
+                              : GestureDetector(
+                                  onTap: () {
+                                    phoneController.clear();
+                                  },
+                                  child: const Icon(Icons.close)),
+                          hintText: '+7 (___) ___-__-__',
+                          labelText: 'Телефон',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide:
+                                  const BorderSide(color: Colors.red, width: 1))),
+                      inputFormatters: [maskFormatter],
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    TextField(
+                      obscureText: isVisible,
+                      controller: passwordController,
+                      onChanged: (value) {
+                        //print(value);
+                      },
+                      //
+                      decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.lock),
+                          suffixIcon: GestureDetector(
+                              onTap: () {
+                                isVisible = !isVisible;
+                                setState(() {});
+                              },
+                              child: Icon(isVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off)),
+                          hintText: 'Введите ваш пароль',
+                          labelText: 'Пароль',
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide:
+                                  const BorderSide(color: Colors.red, width: 1))),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            checkLogin();
+                          });
+                        },
+                        child: const Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 26, vertical: 18),
+                          child: Text('Войти'),
+                        ))
+                  ],
+                ),
               ),
             ),
           )
